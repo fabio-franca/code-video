@@ -34,6 +34,7 @@ const { validateToken } = require('../middlewares/AuthMiddleware.js');
 
 router.post("/api/users", users.createUser); 
 router.post("/api/login", users.login);
+router.get("/api/auth", validateToken, users.auth);
 
 //------------------------------->
 //          ROTA COMMENTS

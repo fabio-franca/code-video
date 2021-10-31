@@ -23,14 +23,14 @@ function ViewPost() {
         axios.post("http://localhost:3001/api/comments", {commentBody: newComment, PostId: id},
             {
                 headers: {
-                    accessToken: sessionStorage.getItem("accessToken"),
+                    accessToken: localStorage.getItem("accessToken"),
                 },
             })
             .then((response)=>{         //Dessa forma é possível inserir comentarios em tempo real!
                 if(response.data.error){
                     alert(response.data.error)
                 } else {
-                const commentToAdd = {commentBody: newComment} 
+                const commentToAdd = {commentBody: newComment, username: response.data.username} 
                 setComments([...comments, commentToAdd]);
                 setNewComment(""); //Limpa o input, realizando um refresh
                 } 
@@ -59,7 +59,8 @@ function ViewPost() {
                        
                         return (         
                             <div className="comment">
-                                <b>{comment.commentBody}</b> - ({comment.createdAt})
+                                <label><b>{comment.username}</b></label><br/>
+                                {comment.commentBody}
                             </div>                            
                         );
                     })}

@@ -276,6 +276,9 @@ exports.getComment = async (req, res) => {    //Nesse método é buscado na tabe
 
 exports.createComment =  async (req, res) => {
     const comment = req.body;
+    const username = req.user.username;
+
+    comment.username = username;        
     await Comments.create(comment);
     res.json(comment);
 }
@@ -298,8 +301,7 @@ exports.login = async (req,res) => {
     const {username,password} = req.body;
 
     const user = await Users.findOne({ where: {username: username}});
-
-    if(!user) res.json({error: "Usuário não existe!"});
+        if(!user) res.json({error: "Usuário não existe!"});
 
         bcrypt.compare(password, user.password).then(async(match)=>{
             if(!match) res.json({error: "Usuário ou senha incorretos!"});
@@ -308,4 +310,9 @@ exports.login = async (req,res) => {
                 {username: user.username, id: user.id}, "importantsecret");
             res.json(accessToken);
         });
+
 };
+
+exports.auth = async (req,res)=>{
+    await res.json(req.user)
+}
