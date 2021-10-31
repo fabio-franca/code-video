@@ -2,8 +2,12 @@ const db = require('../config/db.config.js');
 const Cliente = db.Cliente;
 const Posts = db.Posts;
 const Comments = db.Comments;
+const bcrypt = require("bcrypt")
+const { sign } = require("jsonwebtoken")
+const { validateToken } = require("../middlewares/AuthMiddleware.js")
 
-var xFrameOptions = require('x-frame-options')
+var xFrameOptions = require('x-frame-options');
+const { Users } = require('../config/db.config.js');
 var middleware = xFrameOptions(headerValue = 'Deny')
 
 //--------------------------------------------------->Cliente
@@ -270,8 +274,38 @@ exports.getComment = async (req, res) => {    //Nesse método é buscado na tabe
    res.json(comments);
 }
 
-exports.createComment = async (req, res) =>{
+exports.createComment =  async (req, res) => {
     const comment = req.body;
     await Comments.create(comment);
     res.json(comment);
 }
+
+//-------------------------------------------------->
+//                      Users
+//--------------------------------------------------> 
+exports.createUser = async (req,res)=>{
+    const { username, password } = req.body;
+    bcrypt.hash(password, 10).then((hash)=>{
+        Users.create({
+            username: username,
+            password: hash,
+        })
+        res.json("Success!");
+    });
+};
+
+exports.login = async (req,res) => {
+    const {username,password} = req.body;
+
+    const user = await Users.findOne({ where: {username: username}});
+
+    if(!user) res.json({error: "Usuário não existe!"});
+
+        bcrypt.compare(password, user.password).then(async(match)=>{
+            if(!match) res.json({error: "Usuário ou senha incorretos!"});
+
+            const accessToken = sign(
+                {username: user.username, id: user.id}, "importantsecret");
+            res.json(accessToken);
+        });
+};

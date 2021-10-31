@@ -5,7 +5,7 @@
     margin-top: 2rem;
 }
 
-.conteudo .player{
+.conteudo .player iframe{
     margin-left: 12rem;
     justify-content: center;
 }
@@ -61,16 +61,19 @@
 
 .containerPlayer .listOfComments{
     margin-top: 2rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    width: 50%;
     font-size: 22px;
+    background-color: rgba(200, 200, 200, 0.2);
 }
 
 .comment {
-    border-bottom: 1px solid #555;
     margin-top: 20px;
-    font-size: 22px;
+    font-size: 16px;
     margin-left: 1rem;
     margin-right: 2rem;
     margin-bottom: 1rem;
     color: #555;
+    padding: 2px;
 }

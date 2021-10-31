@@ -19,8 +19,13 @@ function AddPost() {
 
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/api/posts", data).then((response) => {
-          alert("Post realizado com sucesso!");
-          history.push("/principal");
+          if(response.data){
+            alert("Post realizado com sucesso!");
+            history.push("/principal");
+          } else {
+            console.log("Usuário ou senha incorretos");
+          }
+          
         });
       };
 

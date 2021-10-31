@@ -1,5 +1,6 @@
 import "./topbar.css"
 import {BsFillPersonFill, BsPersonPlus, BsTag} from "react-icons/bs";
+import { Link, useParams } from "react-router-dom";
 
 export default function Topbar() {
     return (
@@ -11,9 +12,9 @@ export default function Topbar() {
                        </div>
                    </div>
                    <ul>
-                       <li><a href="#"><BsFillPersonFill className="itemIcon"/>Login</a></li>
+                       <li><Link to="/login"><BsFillPersonFill className="itemIcon"/>Login</Link></li>
                        <li><a href="#"><BsTag  className="itemIcon"/>Categorias</a></li>
-                       <li><a href="#"><BsPersonPlus  className="itemIcon"/>Cadastrar</a></li>
+                       <li><Link to="/registration"><BsPersonPlus  className="itemIcon"/>Cadastrar</Link></li>
                    </ul>
                </div>
     )

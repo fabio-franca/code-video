@@ -21,9 +21,12 @@
     text-align: center;
 }
 .addPostTitle:after{
-    content: "_________________________";
-    color: #dd974f;
-    font-weight: 600;
+    background: #dd974f; 
+    content: "";
+    display: block;
+    width: 22rem;
+    height: 2px;
+    margin: 20px auto;
 }
 
 .formContainer{

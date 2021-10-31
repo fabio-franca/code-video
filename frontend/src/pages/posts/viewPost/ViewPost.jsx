@@ -20,11 +20,20 @@ function ViewPost() {
       }, []);
 
     const addComment = ()=>{
-        axios.post("http://localhost:3001/api/comments", {commentBody: newComment, PostId: id})
+        axios.post("http://localhost:3001/api/comments", {commentBody: newComment, PostId: id},
+            {
+                headers: {
+                    accessToken: sessionStorage.getItem("accessToken"),
+                },
+            })
             .then((response)=>{         //Dessa forma é possível inserir comentarios em tempo real!
+                if(response.data.error){
+                    alert(response.data.error)
+                } else {
                 const commentToAdd = {commentBody: newComment} 
                 setComments([...comments, commentToAdd]);
                 setNewComment(""); //Limpa o input, realizando um refresh
+                } 
             });
     };
 
@@ -47,9 +56,10 @@ function ViewPost() {
                 </div> 
                 <div className="listOfComments">
                     {comments.map((comment, key)=>{
+                       
                         return (         
                             <div className="comment">
-                                {comment.commentBody}
+                                <b>{comment.commentBody}</b> - ({comment.createdAt})
                             </div>                            
                         );
                     })}
