@@ -1,0 +1,76 @@
+.containerPlayer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.conteudo .player{
+    margin-left: 12rem;
+    justify-content: center;
+}
+
+.conteudo .link{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.conteudo .link a{
+    margin-top: 1rem;
+    text-decoration: none;
+    color: navy;
+    font-size: 1.2em;
+    border: 2px solid #dd974f;
+    border-radius: 20px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.conteudo .link a:hover{
+    background-color: #dd974f;
+    color: white;
+}
+
+/*-------Comments-------*/
+.addCommentContainer input{
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-right: 10px;
+    height: 35px;
+    width: 30%;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #555;
+}
+
+.addCommentContainer button{
+    height: 35px;
+    width: 100px;
+    padding: 2px;
+    border: 1px solid #dd974f;
+    border-radius: 25px;
+    background-color: transparent;
+    color: navy;
+    cursor: pointer;
+}
+
+.addCommentContainer button:hover{
+    background-color: #dd974f;
+    color: white;
+}
+
+.containerPlayer .listOfComments{
+    margin-top: 2rem;
+    margin-left: 1rem;
+    font-size: 22px;
+}
+
+.comment {
+    border-bottom: 1px solid #555;
+    margin-top: 20px;
+    font-size: 22px;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}

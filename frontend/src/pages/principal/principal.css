@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.listaPostsTitle{
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.listaPostsTitle h1{
+    color: navy;
+   
+}
+
+.listaPostsTitle span{
+    color: #dd974f;
+}
+
+.listaPostsTitle:after{
+    content: "________________________";
+    color: #dd974f;
+    font-size: 2rem;
+}

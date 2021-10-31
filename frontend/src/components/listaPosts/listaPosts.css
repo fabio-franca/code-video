@@ -1,0 +1,84 @@
+.listaPosts{
+    background-color: rgba(212, 212, 212, 0.2);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.listaConteudo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 20px;
+    margin: 20px;
+    width: 360px;
+    height: 200px;
+    transition: all 0.3s ease-out;
+    display: flex;
+    justify-content: space-between;
+    z-index: 998;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.orange {
+    border-top: 2px solid #dd974f;
+}
+
+.blue {
+    border-bottom: 2px solid navy;
+}
+
+.conteudo{
+    flex-direction: column;
+    flex: 2;
+    margin-right: 10px;
+    position: relative;
+}
+
+.conteudo .conteudoDescricao{
+    font-size: 1em;
+}
+
+.conteudo .conteudoCategoria{
+    float: left;
+    padding: 2px;
+    margin-top: auto;
+    justify-content: flex-end;
+    bottom:0;
+    position: absolute;
+}
+
+.conteudoCategoria label{
+    background-color: #dd974f;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.conteudoImg{
+    flex: 1;
+}
+
+.conteudoImg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+.conteudoIcon{
+    font-size: 36px;
+    text-align: center;
+    opacity: 5%;
+    margin-top: 6rem;
+    margin-left: 8rem;
+    position: absolute;
+    z-index: 999;
+}
