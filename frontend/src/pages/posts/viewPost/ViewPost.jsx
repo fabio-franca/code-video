@@ -1,13 +1,16 @@
 import "./viewPost.css"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import {BsXCircle} from "react-icons/bs"
+import { AuthContext } from "../../../helpers/AuthContext"
 
 function ViewPost() {
     let { id } = useParams();
     const [postObject, setPostObject] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
+    const { authState } = useContext(AuthContext);
 
     useEffect(() => {
         axios.get(`http://localhost:3001/api/post/${id}`).then((response) => {
@@ -37,6 +40,17 @@ function ViewPost() {
             });
     };
 
+    const deleteComment = (id) => {
+        axios.delete(`http://localhost:3001/api/comment/${id}`, 
+                    {headers: {accessToken: localStorage.getItem("accessToken")}
+                }).then(()=>{
+                    setComments(comments.filter((val)=>{
+                        return val.id != id
+                    }))
+                    alert("Excluído com sucesso!");
+                })
+    }
+
     return (
             <div className="containerPlayer">
                 <div className="conteudo">
@@ -59,9 +73,11 @@ function ViewPost() {
                        
                         return (         
                             <div className="comment">
-                                <label><b>{comment.username}</b></label><br/>
-                                {comment.commentBody}
-                            </div>                            
+                                <label><b>{comment.username}</b></label>
+                                <div className="commentBody">{comment.commentBody}</div>
+                               {authState.username === comment.username && <button onClick={() => {deleteComment(comment.id)}} className="deleteComment"><BsXCircle className="deleteIcon"/></button>}
+                                <br/> 
+                            </div>                          
                         );
                     })}
                 </div>

@@ -283,6 +283,15 @@ exports.createComment =  async (req, res) => {
     res.json(comment);
 }
 
+exports.deleteComment = async (req,res) => {
+    const commentId = req.params.commentId
+
+    await Comments.destroy({where:{
+        id: commentId,
+    }});
+    res.json("Excluído com sucesso!")
+};
+
 //-------------------------------------------------->
 //                      Users
 //--------------------------------------------------> 
@@ -308,7 +317,7 @@ exports.login = async (req,res) => {
 
             const accessToken = sign(
                 {username: user.username, id: user.id}, "importantsecret");
-            res.json(accessToken);
+            res.json({token:accessToken, username: username, id: user.id});
         });
 
 };

@@ -17,10 +17,10 @@ function Login() {
             if(response.data.error){
                 alert(response.data.error);
             } else {
-                localStorage.setItem("accessToken", response.data);
+                localStorage.setItem("accessToken", response.data.token);
                 alert("Usuário " + username + " logado com sucesso");
                 history.push("/principal");
-                //setAuthState(true);
+                setAuthState({username: response.data.username, id: response.data.id, status: true});
             }
             
         })

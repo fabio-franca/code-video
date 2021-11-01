@@ -43,6 +43,7 @@ const comments = require("../controllers/controller.js")
 
 router.post('/api/comments', validateToken, comments.createComment);
 router.get('/api/comments/:postId', comments.getComment);
+router.delete("/api/comment/:commentId", validateToken, comments.deleteComment)
 
 //Registro
 // router.post("/registro", (req,res)=>{

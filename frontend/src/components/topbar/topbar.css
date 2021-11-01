@@ -55,7 +55,7 @@
     padding: 15px;
     justify-content: space-between;
     color: #6f5198;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .header a{
@@ -64,7 +64,33 @@
 
 .itemIcon{
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 16px;
     color: #563fad;
     cursor: pointer;
 }
+
+.logout{
+    border: none;
+    background-color: transparent;
+    color: #563fad;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.userLogin{
+    font-size: 16px;
+    color: #555;
+    text-transform: capitalize;
+    background-color: transparent;
+    padding: 4px;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+.border-gradient {
+    border: 5px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, #563fad, #dd974f);
+  }
