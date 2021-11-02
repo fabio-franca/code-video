@@ -1,13 +1,13 @@
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, DataTypes) => {
 	const Cliente = sequelize.define('cliente', 
 	{	
-	  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+	  id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
 	  
-      nome: { type: Sequelize.STRING },
+      nome: { type: DataTypes.STRING },
 
-	  email: { type: Sequelize.STRING },
+	  email: { type: DataTypes.STRING },
       
-	  idade: { type: Sequelize.INTEGER },
+	  idade: { type: DataTypes.INTEGER },
 	});
 	
 	return Cliente;

@@ -13,49 +13,63 @@
 .card{
     border-radius: 5px;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    padding: 20px;
-    margin: 20px;
-    width: 360px;
-    height: 200px;
+    margin: 12px;
+    width: 307px;
+    height: 270px;
     transition: all 0.3s ease-out;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     z-index: 998;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    cursor: pointer;
 }
-
 .orange {
-    border-top: 2px solid #dd974f;
+    border-top: 3px solid #dd974f;
 }
-
 .blue {
-    border-bottom: 2px solid navy;
+    border-bottom: 3px solid navy;
 }
 
-.conteudo{
-    flex-direction: column;
-    flex: 2;
-    margin-right: 10px;
+.card .conteudoImg{
+    flex: 1;
+ }
+ 
+.card .conteudoImg img{
+     width: 100%;
+     height: 140px;
+     border-radius: 6px;
+     cursor: pointer;
+ }
+ 
+/*-----------CONTEUDO---------*/
+.card .conteudo{
+    flex: 1;
     position: relative;
+    width: 100%;
+}
+.conteudoTitulo{
+    margin-top: 2px;
+    margin-left: 0.7rem;
 }
 
-.conteudo .conteudoDescricao{
-    font-size: 1em;
+.conteudoDescricao{
+    margin-top: 2px;
+    margin-left: 0.8rem;
+    font-size: 0.8em;
 }
 
-.conteudo .conteudoCategoria{
+.conteudoCategoria{
     float: left;
     padding: 2px;
     margin-top: auto;
+    margin-left: 0.7rem;
+    margin-bottom: 10px;
     justify-content: flex-end;
     bottom:0;
     position: absolute;
 }
-
 .conteudoCategoria label{
     background-color: #dd974f;
     color: white;
@@ -63,22 +77,64 @@
     border-radius: 4px;
 }
 
-.conteudoImg{
-    flex: 1;
+.conteudoLike{
+    display: flex;
+    float: left;
+    margin-left: 5rem;
+    justify-content: center;
+    bottom:4px;
+    position: absolute;
+}
+.conteudoLike label{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.conteudoLike button{
+    border: none;
+    color: navy;
+    background-color: transparent;
+    font-size: 18px;
+    cursor: pointer;
+} 
+
+.conteudoUnlike{
+    display: flex;
+    float: left;
+    margin-left: 8rem;
+    justify-content: center;
+    bottom:4px;
+    position: absolute;
+}
+.conteudoUnlike label{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.conteudoUnlike button{
+    border: none;
+    color: rgb(161, 2, 2);
+    background-color: transparent;
+    font-size: 18px;
+    cursor: pointer;
+} 
+
+.conteudoUser{
+    display: flex;
+    float: right;
+    margin-top: 3.18rem;
+    padding: 7px;
+    font-size: 14px;
+}
+.conteudoUser i{
+    color: navy;
+    margin-right: 7px;
+    font-size: 13px;
 }
 
-.conteudoImg img{
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-}
-
-.conteudoIcon{
+/* .conteudoIcon{
     font-size: 36px;
     text-align: center;
-    opacity: 5%;
-    margin-top: 6rem;
+    margin-top: 5rem;
     margin-left: 8rem;
     position: absolute;
     z-index: 999;
-}
+} */

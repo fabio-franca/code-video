@@ -13,7 +13,7 @@ function ViewPost() {
     const { authState } = useContext(AuthContext);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/post/${id}`).then((response) => {
+        axios.get(`http://localhost:3001/api/posts/byId/${id}`).then((response) => {
           setPostObject(response.data);
         });
 
@@ -31,7 +31,7 @@ function ViewPost() {
             })
             .then((response)=>{         //Dessa forma é possível inserir comentarios em tempo real!
                 if(response.data.error){
-                    alert(response.data.error)
+                    alert("É necessário se logar para realizar comentários")
                 } else {
                 const commentToAdd = {commentBody: newComment, username: response.data.username} 
                 setComments([...comments, commentToAdd]);
@@ -41,7 +41,7 @@ function ViewPost() {
     };
 
     const deleteComment = (id) => {
-        axios.delete(`http://localhost:3001/api/comment/${id}`, 
+        axios.delete(`http://localhost:3001/api/comments/${id}`, 
                     {headers: {accessToken: localStorage.getItem("accessToken")}
                 }).then(()=>{
                     setComments(comments.filter((val)=>{

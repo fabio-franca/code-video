@@ -33,8 +33,6 @@ export default function Routes(){
         })
     }, []);
 
-    let history = useHistory();
-
     const logout = () =>{
         localStorage.removeItem("accessToken");
         setAuthState({username: "", id: 0, status: false});
