@@ -1,21 +1,27 @@
 import "./listaPosts.css";
-import React from "react";
+import React, {useContext} from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaPlay, FaUser } from "react-icons/fa"
 import { BiLike, BiDislike } from "react-icons/bi"
+import { AuthContext } from "../../helpers/AuthContext";
 
 
 function ListaPosts() {
     const [listOfPosts, setListOfPosts] = useState([]);
+    const {authState} = useContext(AuthContext);
     let history = useHistory();
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/posts").then((response) => {
-          setListOfPosts(response.data);
-        });
-      }, []);
+        if(!localStorage.getItem("accessToken")){      //Senão tiver usuário logado, redireciona para página Login
+            history.push('/login')
+        } else {
+            axios.get("http://localhost:3001/api/posts").then((response) => {
+                setListOfPosts(response.data);
+              });
+        } 
+    }, []);
 
     const likeAPost = (postId) =>{
         axios.post("http://localhost:3001/api/likes", 
@@ -97,7 +103,7 @@ function ListaPosts() {
                                     <label>{value.Unlikes.length}</label>
                                 </div>
                                 <div className="conteudoUser">
-                                   <i><FaUser/></i><p>{value.username}</p>
+                                   <Link to={`/profile/${value.UserId}`}><i><FaUser/></i><p>{value.username}</p></Link>
                                 </div>  
                             </div>
                         </div>  

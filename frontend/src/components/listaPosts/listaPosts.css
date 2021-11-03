@@ -15,7 +15,7 @@
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
     margin: 12px;
     width: 307px;
-    height: 270px;
+    height: 300px;
     transition: all 0.3s ease-out;
     display: flex;
     flex-direction: column;
@@ -57,7 +57,11 @@
 .conteudoDescricao{
     margin-top: 2px;
     margin-left: 0.8rem;
-    font-size: 0.8em;
+    font-size: 0.75em;
+    width: 90%;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
 .conteudoCategoria{
@@ -120,9 +124,12 @@
 .conteudoUser{
     display: flex;
     float: right;
-    margin-top: 3.18rem;
-    padding: 7px;
+    bottom:4px;
+    padding: 5px;
     font-size: 14px;
+    margin-left: 14rem;
+
+    position: absolute;
 }
 .conteudoUser i{
     color: navy;

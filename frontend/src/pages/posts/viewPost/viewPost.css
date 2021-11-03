@@ -5,28 +5,46 @@
     margin-top: 2rem;
 }
 
-.conteudo .player iframe{
-    margin-left: 12rem;
+.conteudo .player{
+    position: relative;
+    padding-bottom: 10.25%; /* 16:9 */
+    padding-top: 300px;
+}
+
+.player iframe{
+    margin-left: 8rem;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
 }
 
 .conteudo .link{
-    text-align: center;
-    margin-top: 1rem;
+    display: flex;
+    margin-left: 1rem;
+    margin-top: 0.6rem;  
+    justify-content: flex-end;
 }
 
 .conteudo .link a{
-    margin-top: 1rem;
     text-decoration: none;
+}
+.conteudo .link .returnBtn{
+    height: 35px;
+    width: 190px;
+    padding: 6px;
+    border: none;
+    background-color: transparent;
     color: navy;
-    font-size: 1.2em;
-    border: 2px solid #dd974f;
-    border-radius: 20px;
-    margin-top: 15px;
-    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #dd974f;
+    border-radius: 25px;
+    justify-content: left;
 }
 
-.conteudo .link a:hover{
+.conteudo .link .returnBtn:hover{
     background-color: #dd974f;
     color: white;
 }
@@ -95,4 +113,23 @@
     color: rgb(185, 4, 4);
     cursor: pointer;
     float: right;
+}
+
+/*-----------------EXCLUIR POST-----------------*/
+.link .deletePost{
+    margin-left: 20rem;
+    margin-right: 10rem;
+}
+.deletePost button{
+    border: none;
+    background-color: rgba(218, 1, 1, 0.712);
+    padding: 10px;
+    color: white;
+    height: 35px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.deletePost button:hover{
+    background-color: rgba(180, 0, 0, 1.0);
+    box-shadow: 2px 5px 10px 2px rgba(200, 200, 200, 0.4);
 }

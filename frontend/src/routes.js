@@ -8,7 +8,7 @@ import AddPost from './pages/posts/addPost/AddPost';
 import ViewPost from './pages/posts/viewPost/ViewPost';
 import Registration from './pages/registration/Registration';
 import Login from './pages/login/Login';
-
+import PageNotFound from './pages/pageNotFound/PageNotFound';
 import "./components/topbar/topbar.css"
 import {BsFillPersonFill, BsPersonPlus, BsTag, BsFillDoorOpenFill} from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
@@ -16,10 +16,12 @@ import { AuthContext } from "./helpers/AuthContext"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from 'react-router';
+import Profile from './pages/profile/Profile';
 
 export default function Routes(){
     const [authState, setAuthState] = useState({username: "", id: 0, status: false,});
-    
+    let history = useHistory();
+
     useEffect(()=>{
         axios.get("http://localhost:3001/api/auth", {headers:{
             accessToken: localStorage.getItem("accessToken"),
@@ -70,6 +72,8 @@ export default function Routes(){
                 <Route path="/post/:id" component={ViewPost}/>
                 <Route path="/registration" component={Registration}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/profile/:id" component={Profile}/>
+                <Route path="*" exact component={PageNotFound}/>
             </Switch>
         </BrowserRouter>
         </AuthContext.Provider>

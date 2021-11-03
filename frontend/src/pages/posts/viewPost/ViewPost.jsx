@@ -1,9 +1,10 @@
 import "./viewPost.css"
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import {BsXCircle} from "react-icons/bs"
 import { AuthContext } from "../../../helpers/AuthContext"
+
 
 function ViewPost() {
     let { id } = useParams();
@@ -11,6 +12,7 @@ function ViewPost() {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const { authState } = useContext(AuthContext);
+    let history = useHistory();
 
     useEffect(() => {
         axios.get(`http://localhost:3001/api/posts/byId/${id}`).then((response) => {
@@ -46,9 +48,17 @@ function ViewPost() {
                 }).then(()=>{
                     setComments(comments.filter((val)=>{
                         return val.id != id
-                    }))
-                    alert("Excluído com sucesso!");
+                    }))     
                 })
+    }
+
+    const deletePost = (id) => {
+        axios.delete(`http://localhost:3001/api/posts/${id}`, {
+            headers: {accessToken: localStorage.getItem("accessToken")}
+        }).then(()=>{
+            alert("Post excluído com sucesso")
+            history.push("/principal");
+        },[]);
     }
 
     return (
@@ -58,8 +68,13 @@ function ViewPost() {
                         <iframe className="playerIframe" width="1000" height="450" src={postObject.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                     <div className="link">
-                        <Link to='/principal'>Voltar a página principal</Link>
+                        <Link to='/principal'><button className="returnBtn">Voltar a página principal</button></Link>
+                        <div className="deletePost">
+                        {authState.username === postObject.username &&
+                        <button onClick={()=>{deletePost(postObject.id)}}>Excluir Post</button>}
+                        </div>
                     </div>
+                   
                 </div>
                 <div className="addCommentContainer">
                     <input type="text" autoComplete="off" value={newComment} placeholder="Seu comentário..."

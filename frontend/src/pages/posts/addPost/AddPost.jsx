@@ -1,15 +1,25 @@
+import React, {useContext, useEffect} from "react";
 import "./addPost.css"
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useHistory } from "react-router-dom"
+import { AuthContext } from "../../../helpers/AuthContext";
 
 function AddPost() {
+    const {authState} = useContext(AuthContext);
+    let history = useHistory();
     const initialValues = {
         titulo: "",
         descricao: "",
         video: "",
       };
+
+    useEffect(()=>{
+      if(!localStorage.getItem("accessToken")){
+        history.push("/login")
+      }
+    },[]);
 
     const validationSchema = Yup.object().shape({
         titulo: Yup.string().min(3).max(30).required("Título é obrigatório"),
@@ -18,7 +28,9 @@ function AddPost() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/api/posts", data).then((response) => {
+        axios.post("http://localhost:3001/api/posts", data,{
+          headers: {accessToken: localStorage.getItem("accessToken")},
+        }).then((response) => {
           if(response.data){
             alert("Post realizado com sucesso!");
             history.push("/principal");
@@ -28,8 +40,6 @@ function AddPost() {
           
         });
       };
-
-    let history = useHistory();
     
     return (
         <div className="addPost">

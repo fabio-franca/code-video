@@ -38,4 +38,12 @@ router.get("/auth", validateToken, (req, res) => {
   res.json(req.user);
 });
 
+router.get("/basicInfo/:id", async (req,res)=>{
+  const id = req.params.id;
+  const basicInfo = await Users.findByPk(id, {
+    attributes: {exclude: ['password']},        //Para que não seja possível pegar a senha
+  });
+  res.json(basicInfo);
+})
+
 module.exports = router;
