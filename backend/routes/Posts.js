@@ -32,6 +32,24 @@ router.post("/", validateToken, async (req, res) => {
   res.json(post);
 });
 
+//---------------------->Edição do título do post
+router.put("/titulo", validateToken, async (req, res) => {
+  const {novoTitulo, id} = req.body;
+
+  await Posts.update({titulo: novoTitulo},{where: {id: id}})
+  res.json(novoTitulo);
+});
+
+//---------------------->Edição do texto do post
+router.put("/descricao", validateToken, async (req, res) => {
+  const {novaDescricao, id} = req.body;
+
+  await Posts.update({descricao: novaDescricao},{where: {id: id}})
+  res.json(novaDescricao);
+});
+
+
+//--------------------->Exclusão
 router.delete("/:postId", validateToken, async(req, res)=>{
   const postId = req.params.postId;
 

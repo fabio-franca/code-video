@@ -61,11 +61,41 @@ function ViewPost() {
         },[]);
     }
 
+    const editPost = (option) =>{
+        if(option === "conteudoTitle"){
+            let novoTitulo = prompt("Insira o novo título: ");
+            axios.put("http://localhost:3001/api/posts/titulo", 
+            { novoTitulo: novoTitulo, id: id},
+            { headers: {accessToken: localStorage.getItem("accessToken")}});
+
+            setPostObject({...postObject, titulo: novoTitulo});          //Realiza o refresh na tela para mostrar a alteração em tempo real
+        } else {
+            let novaDescricao = prompt("Insira a nova descrição: ");
+            axios.put("http://localhost:3001/api/posts/descricao", 
+            { novaDescricao: novaDescricao, id: id},
+            { headers: {accessToken: localStorage.getItem("accessToken")} });
+
+            setPostObject({...postObject, descricao: novaDescricao});    //Realiza o refresh na tela para mostrar a alteração em tempo real
+        }   
+    };
+
     return (
             <div className="containerPlayer">
                 <div className="conteudo">
                     <div className="player">
                         <iframe className="playerIframe" width="1000" height="450" src={postObject.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    </div>
+                    <div className="conteudoTitle" onClick={()=>{
+                        if(authState.username === postObject.username) {
+                            editPost("conteudoTitle")
+                        }}}>
+                        <h3>{postObject.titulo}</h3><p style={{textTransform:"capitalize"}}>({postObject.username})</p>
+                    </div>
+                    <div className="conteudoDescricaoPost" onClick={()=>{
+                        if(authState.username === postObject.username){
+                            editPost("conteudoDescricaoPost")
+                        }}}>
+                        <p>{postObject.descricao}</p>
                     </div>
                     <div className="link">
                         <Link to='/principal'><button className="returnBtn">Voltar a página principal</button></Link>

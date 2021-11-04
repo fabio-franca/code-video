@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .conteudo .player{
@@ -21,10 +21,31 @@
     height: 100%;
 }
 
+.conteudo .conteudoTitle{
+    display: flex;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: 8rem;
+    cursor: pointer;
+}
+
+.conteudo .conteudoTitle p{
+    margin-top: 2px;
+    margin-left: 5px;
+    color: navy;
+}
+
+.conteudo .conteudoDescricaoPost{
+    margin-top: 6px;
+    margin-left: 8rem;
+    color: #555;
+    cursor: pointer;
+}
+
 .conteudo .link{
     display: flex;
     margin-left: 1rem;
-    margin-top: 0.6rem;  
+
     justify-content: flex-end;
 }
 

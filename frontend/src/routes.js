@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from 'react-router';
 import Profile from './pages/profile/Profile';
+import ChangePassword from './pages/profile/ChangePassword';
 
 export default function Routes(){
     const [authState, setAuthState] = useState({username: "", id: 0, status: false,});
@@ -59,7 +60,10 @@ export default function Routes(){
                         <li><Link to="/login"><BsFillPersonFill className="itemIcon"/>Login</Link></li>
                         <li><Link to="/registration"><BsPersonPlus  className="itemIcon"/>Registrar</Link></li>
                         </>
-                       ) : (<div style={{display:"flex"}}><p className="userLogin border-gradient">Olá, {authState.username}!</p><button onClick={logout} className="logout"><BsFillDoorOpenFill className="itemIcon"/>Logout</button></div>)}
+                       ) : (<div style={{display:"flex"}}><Link style={{marginTop:"7px", marginLeft:"4px"}} to="/posts/add">Criar Post</Link>
+                           <p className="userLogin border-gradient">Olá, {authState.username}!</p>
+                           <button onClick={logout} className="logout"><BsFillDoorOpenFill className="itemIcon"/>Logout</button>
+                           </div>)}
                        
                     </ul>
                </div>
@@ -73,6 +77,7 @@ export default function Routes(){
                 <Route path="/registration" component={Registration}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/profile/:id" component={Profile}/>
+                <Route path="/changePassword" component={ChangePassword}/>
                 <Route path="*" exact component={PageNotFound}/>
             </Switch>
         </BrowserRouter>

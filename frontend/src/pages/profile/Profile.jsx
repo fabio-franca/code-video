@@ -1,14 +1,17 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import "./profile.css"
 import { useParams, useHistory } from "react-router-dom"
 import axios from 'axios';
 import { FaPlay, FaUser } from "react-icons/fa"
+import { AuthContext } from "../../helpers/AuthContext";
 
 function Profile() {
     let { id } = useParams();       //Desestrutura para pegar o id
+    let history = useHistory();
     const [username, setUsername] = useState(""); 
     const [listOfPosts, setListOfPosts] = useState([]);
-    let history = useHistory();
+    const { authState } = useContext(AuthContext);
+
 
     useEffect(() => {
        axios.get(`http://localhost:3001/api/basicInfo/${id}`).then((response)=>{
@@ -20,42 +23,38 @@ function Profile() {
     }, [])
     return (
         <div className="profilePageContainer">
-            <div className="basicInfo"><h2>Usuário: {username}</h2></div>
-            <div className="listOfMyPosts">
+            <div className="basicInfo">
+                <h3>Usuário: {username}</h3>
+                {authState.username === username && 
+                    <button onClick={()=>{history.push("/changePassword")}}>Alterar minha senha</button>}
+            </div>
+            <div className="listOfMyPosts"><h3>Meus posts: </h3>
+            <table>
+                            <tr>
+                                <th>Id</th>
+                                <th>Título</th>
+                                <th>Categoria</th>
+                                <th>Likes</th>
+                                <th>Deslikes</th>
+                            </tr>
             {listOfPosts.map((value, key) => {
                 return(
                     <>
-                        <div key={key} className="card orange blue">
-                            <div className="conteudoImg"
-                                onClick={() => {
+                            <tr>
+                                <td>{value.id}</td>
+                                <td>{value.titulo}</td>
+                                <td>HTML</td>
+                                <td>{value.Likes.length}</td>
+                                <td>{value.Unlikes.length}</td>
+                                <td onClick={() => {
                                 history.push(`/post/${value.id}`); }}>
-                                    <img src={value.capa} alt="" />
-                            </div>
-                            <div className="conteudo">        
-                                <div className="conteudoTitulo">
-                                     {/* <input type="hidden" value={value.id} /> */}
-                                        <h3>{value.titulo}</h3>
-                                </div>
-                                <div className="conteudoDescricao">
-                                    <p>{value.descricao}</p>
-                                </div>
-                                <div className="conteudoCategoria">
-                                    <label>HTML</label>
-                                </div>
-                                <div className="conteudoLike">
-                                    <label>{value.Likes.length}</label>
-                                </div>
-                                <div className="conteudoUnlike">
-                                    <label>{value.Unlikes.length}</label>
-                                </div>
-                                <div className="conteudoUser">
-                                   <i><FaUser/></i><p>{value.username}</p>
-                                </div>  
-                            </div>
-                        </div>  
+                                    <img src={value.capa} alt="" width="100px" />
+                                </td>
+                            </tr>
                     </>
                  );
             })}
+             </table>
             </div>
         </div>
     )
