@@ -19,7 +19,8 @@ O banco de dados escolhido foi o MySQL.
 <hr>
 Para iniciar, realizar a execução do script DB_CODEVIDEO.sql, onde será criada a base de dados e inserção das tabelas.
 <br>
-  1. Registro: http://localhost:3000/registration
+
+1. Registro: http://localhost:3000/registration
   Utilizar para se registrar no sistema.
 
 2. Login: http://localhost:3000/login
