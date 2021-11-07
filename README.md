@@ -18,11 +18,15 @@ O banco de dados escolhido foi o MySQL.
 <h3>Utilização:</h3>
 <hr>
 Após clonar o repositório, criar a base de dados DB_CODEVIDEO e ao iniciar a IDE, abrir dois terminais. No primeiro executar:
+
 -cd .\backend\
+
 -node server
 
 No segundo terminar, executar:
+
 -cd .\frontend\
+
 -yarn start
 
 Assim que iniciado o servidor e cliente, realizar a execução do script INSERTS_DB_CODEVIDEO.sql, onde será realizada a inserção das tabelas.
