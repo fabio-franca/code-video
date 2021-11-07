@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
+import "./changePassword.css"
 import axios from 'axios'
 
 function ChangePassword() {
@@ -16,14 +18,23 @@ function ChangePassword() {
 
     return (
         <div>
-            <h3>Altere sua senha aqui: </h3>
-            <input type="text" placeholder="Senha antiga..." onChange={(event)=>{
-                setOldPassword(event.target.value)
-            }}/>
-            <input type="text" placeholder="Nova senha" onChange={(event)=>{
-                setNewPassword(event.target.value)
-            }}/>
-            <button onClick={changePassword}>Salvar mudanças</button>
+            <div className="formContainer">
+                <div className="addPostTitle"><h3>Altere sua senha aqui: </h3></div>
+                <div className="changePasswordConteudo">
+                    <div className="changePasswordAntigo">
+                        <input type="password" placeholder="Senha antiga..." onChange={(event)=>{
+                            setOldPassword(event.target.value)
+                        }}/>
+                    </div>
+                    <div className="changePasswordNovo">
+                        <input type="password" placeholder="Nova senha" onChange={(event)=>{
+                            setNewPassword(event.target.value)
+                        }}/>
+                    </div>
+                    <button onClick={changePassword}>Salvar mudanças</button>
+                </div>
+            </div>
+            <div className="voltarBtn"><Link to="/principal"><button>Voltar a página principal</button></Link></div>
         </div>
     )
 }

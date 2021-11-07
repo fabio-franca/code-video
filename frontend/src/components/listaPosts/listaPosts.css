@@ -68,9 +68,9 @@
     float: left;
     padding: 2px;
     margin-top: auto;
-    margin-left: 0.7rem;
-    margin-bottom: 10px;
-    justify-content: flex-end;
+    margin-left: 0.4rem;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
     bottom:0;
     position: absolute;
 }
@@ -84,13 +84,13 @@
 .conteudoLike{
     display: flex;
     float: left;
-    margin-left: 5rem;
+    margin-left: 6rem;
     justify-content: center;
     bottom:4px;
     position: absolute;
 }
 .conteudoLike label{
-    margin-left: 10px;
+    margin-left: 6px;
     font-size: 14px;
 }
 .conteudoLike button{
@@ -104,13 +104,13 @@
 .conteudoUnlike{
     display: flex;
     float: left;
-    margin-left: 8rem;
+    margin-left: 8.5rem;
     justify-content: center;
     bottom:4px;
     position: absolute;
 }
 .conteudoUnlike label{
-    margin-left: 10px;
+    margin-left: 6px;
     font-size: 14px;
 }
 .conteudoUnlike button{
@@ -123,25 +123,22 @@
 
 .conteudoUser{
     display: flex;
+    flex-direction: column;
     float: right;
     bottom:4px;
     padding: 5px;
-    font-size: 14px;
-    margin-left: 14rem;
-
+    font-size: 13px;
+    margin-left: 12rem;
     position: absolute;
 }
 .conteudoUser i{
     color: navy;
-    margin-right: 7px;
     font-size: 13px;
+    margin-right: 8px;
 }
 
-/* .conteudoIcon{
-    font-size: 36px;
-    text-align: center;
-    margin-top: 5rem;
-    margin-left: 8rem;
-    position: absolute;
-    z-index: 999;
-} */
+.conteudoUser a{
+    display: flex;
+    text-decoration: none;
+}
+

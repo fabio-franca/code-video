@@ -77,7 +77,7 @@ function ListaPosts() {
                             <div className="conteudoImg"
                                 onClick={() => {
                                 history.push(`/post/${value.id}`); }}>
-                                    <img src={value.capa} alt="" />
+                                    <img src={value.Capa.img} alt="" />
                             </div>
                             <div className="conteudo">        
                                 <div className="conteudoTitulo">
@@ -88,7 +88,7 @@ function ListaPosts() {
                                     <p>{value.descricao}</p>
                                 </div>
                                 <div className="conteudoCategoria">
-                                    <label>HTML</label>
+                                    <label>{value.Categoria.descricao}</label>
                                 </div>
                                 <div className="conteudoLike">
                                     <button onClick={()=>{

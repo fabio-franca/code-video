@@ -1,15 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const { Posts, Likes, Unlikes } = require("../models");
+const { Posts, Likes, Unlikes, Capas, Categorias } = require("../models");
+const path = require("path")
+
 
 var xFrameOptions = require('x-frame-options');
 var middleware = xFrameOptions(headerValue = 'Deny')
 const { validateToken } = require("../middlewares/AuthMiddleware");
+// const Capas = require("../models/Capas.js");
+
 
 router.get("/", async (req, res) => {
-  const listOfPosts = await Posts.findAll({ include: [Likes, Unlikes],});
+  const listOfPosts = await Posts.findAll({include: [Likes, Unlikes, Capas, Categorias]});
 
   res.json(listOfPosts);
+});
+
+router.get("/categorias/:id", async (req, res) => {
+  const id = req.params.id;
+  const listaCategorias = await Posts.findAll({where: {CategoriaId: id}, include: [Likes, Unlikes, Capas, Categorias]})
+  res.json(listaCategorias);
 });
 
 router.get("/byId/:id", async (req, res) => {
@@ -40,7 +50,7 @@ router.put("/titulo", validateToken, async (req, res) => {
   res.json(novoTitulo);
 });
 
-//---------------------->Edição do texto do post
+//---------------------->Edição da descrição do post
 router.put("/descricao", validateToken, async (req, res) => {
   const {novaDescricao, id} = req.body;
 

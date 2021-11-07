@@ -1,3 +1,61 @@
 .profilePageContainer{
     margin: 2rem;
+    display: flex;
+    margin-bottom: 13rem;
+}
+
+.basicInfo{
+    flex: 1;
+}
+
+.basicInfo h3{
+    margin-bottom: 1rem;
+    color: navy;
+}
+
+.basicInfo button{
+    border: 1px solid #dd974f;
+    border-radius: 25px;
+    padding: 6px;
+    background-color: transparent;
+    color: navy;
+    cursor: pointer;
+}
+
+.basicInfo button:hover{
+    background-color: #dd974f;
+    color: white;
+}
+
+.listOfMyPosts{
+    flex: 3;
+}
+
+.listOfMyPosts h3{
+    margin-bottom: 1rem;
+    color: navy;
+}
+
+.listOfMyPosts table,th{
+    border-collapse: collapse;
+    border-bottom: 2px solid #dd974f;
+    padding: 1rem;
+    color: navy;
+}
+
+.listOfMyPosts td{
+    padding: 1rem;
+    border-bottom: 2px solid #dd974f;
+    text-align: center;
+}
+
+.listOfMyPosts button{
+    border: none;
+    background-color: transparent;
+}
+
+.listOfMyPosts button,i{
+    font-size: 22px;
+    color: rgb(64, 64, 243);
+    cursor: pointer;
 }

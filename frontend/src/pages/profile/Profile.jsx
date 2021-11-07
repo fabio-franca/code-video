@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext} from 'react';
 import "./profile.css"
 import { useParams, useHistory } from "react-router-dom"
 import axios from 'axios';
-import { FaPlay, FaUser } from "react-icons/fa"
+import { FaPlay, FaUser, FaEye } from "react-icons/fa"
 import { AuthContext } from "../../helpers/AuthContext";
 
 function Profile() {
@@ -36,6 +36,7 @@ function Profile() {
                                 <th>Categoria</th>
                                 <th>Likes</th>
                                 <th>Deslikes</th>
+                                <th>Ações</th>
                             </tr>
             {listOfPosts.map((value, key) => {
                 return(
@@ -46,9 +47,9 @@ function Profile() {
                                 <td>HTML</td>
                                 <td>{value.Likes.length}</td>
                                 <td>{value.Unlikes.length}</td>
-                                <td onClick={() => {
-                                history.push(`/post/${value.id}`); }}>
-                                    <img src={value.capa} alt="" width="100px" />
+                                <td>
+                                   <button onClick={() => {
+                                history.push(`/post/${value.id}`); }}><FaEye/></button> 
                                 </td>
                             </tr>
                     </>

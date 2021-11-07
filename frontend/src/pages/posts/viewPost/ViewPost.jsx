@@ -94,7 +94,7 @@ function ViewPost() {
                     <div className="conteudoDescricaoPost" onClick={()=>{
                         if(authState.username === postObject.username){
                             editPost("conteudoDescricaoPost")
-                        }}}>
+                        }<BsXCircle/>}}>
                         <p>{postObject.descricao}</p>
                     </div>
                     <div className="link">
