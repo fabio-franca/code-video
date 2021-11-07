@@ -34,18 +34,4 @@ db.sequelize.sync().then(() => {
   console.log(err);
 });
 
-// db.sequelize.sync({force: true}).then(() => {
-//   console.log('Reescreve e popula a tabela com { force: true }');
-//   Posts.sync().then(() => {
-//     const posts = [
-//       { titulo: 'Rick Astley - Never Gonna Give You Up', descricao: 'Bom Demais!' , video: 'https://www.youtube.com/embed/DLzxrzFCyOs', capa: "../images/rick2.jpg" },
-//       { titulo: 'Foo Fighters - The Pretender', descricao: 'Showwwww' , video: 'https://www.youtube.com/embed/SBjQ9tuuTJQ', capa: "../images/foofighters.jpg" },
-//       { titulo: 'Guardians of The Galaxy - Mix',  descricao: 'The Best movie soundtracks' , video: "https://www.youtube.com/embed/l9_-2oG4Cc0", capa: "../images/guardiansofgalaxy.jpg" },
-//       { titulo: 'Final Fantasy VII - Soundtrack',  descricao: "Nice game soundtracks" , video: "https://www.youtube.com/embed/ITWOHpJQUWY", capa: "../images/FFVII.jpg" },
-//       { titulo: "Michael Jackson - Beat It", descricao: "Awesome", video: "https://www.youtube.com/embed/oRdxUFDoQe0", capa: "../images/mj.jpg"}
-//     ]
-//     for(let i=0; i<posts.length; i++){
-//       Posts.create(posts[i]);
-//     }  
-//   });
-// });
+
