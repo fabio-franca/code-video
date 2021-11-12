@@ -14,9 +14,6 @@ Frontend:<br>
 <br>
 O banco de dados escolhido foi o MySQL.
 
-
-<<<<<<< HEAD
-=======
 <h3>Utilização:</h3>
 <hr>
 Após clonar o repositório, criar a base de dados DB_CODEVIDEO e ao iniciar a IDE, abrir dois terminais. No primeiro executar:
@@ -34,7 +31,6 @@ No segundo terminar, executar:
 Assim que iniciado o servidor e cliente, realizar a execução do script INSERTS_DB_CODEVIDEO.sql, onde será realizada a inserção das tabelas.
 <br>
 
->>>>>>> 093654cd996ecf2c5918cc4bfc95f8ce118c8390
 1. Registro: http://localhost:3000/registration
   Utilizar para se registrar no sistema.
 
@@ -50,13 +46,11 @@ Assim que iniciado o servidor e cliente, realizar a execução do script INSERTS
 
 5. Após a criação do post, ao acessar a página principal é possível visualizar seu novo post. Dentro do card do post é possível clicar na imagem e acessar seu post.
 
-<<<<<<< HEAD
   5.1. Meu post: http://localhost:3000/post/1 (Exemplo)
   Outros usuário não podem modificar seu post, somente seu usuário logado. Portanto para seu próprio usuário, serão exibidas as opções de excluir o post e clicando no título ou descrição, é possível editar o post.
-=======
+
 5.1. Meu post: localhost:3000/post/1 (Exemplo)
     Outros usuário não podem modificar seu post, somente seu usuário logado. Portanto para seu próprio usuário, serão exibidas as opções de excluir o post e clicando     no título ou descrição, é possível editar o post.
->>>>>>> 093654cd996ecf2c5918cc4bfc95f8ce118c8390
   
 5.2. Comentários: Dentro da postagem é possível criar comentários e excluir, caso o usuário logado seja o mesmo que criou o post.
  
