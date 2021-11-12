@@ -15,11 +15,6 @@ Frontend:<br>
 O banco de dados escolhido foi o MySQL.
 
 
-<h3>Utilização:</h3>
-<hr>
-Para iniciar, realizar a execução do script DB_CODEVIDEO.sql, onde será criada a base de dados e inserção das tabelas.
-<br>
-
 1. Registro: http://localhost:3000/registration
   Utilizar para se registrar no sistema.
 
@@ -35,7 +30,7 @@ Para iniciar, realizar a execução do script DB_CODEVIDEO.sql, onde será criad
 
 5. Após a criação do post, ao acessar a página principal é possível visualizar seu novo post. Dentro do card do post é possível clicar na imagem e acessar seu post.
 
-  5.1. Meu post: localhost:3000/post/1 (Exemplo)
+  5.1. Meu post: http://localhost:3000/post/1 (Exemplo)
   Outros usuário não podem modificar seu post, somente seu usuário logado. Portanto para seu próprio usuário, serão exibidas as opções de excluir o post e clicando no título ou descrição, é possível editar o post.
   
   5.2. Comentários: Dentro da postagem é possível criar comentários e excluir, caso o usuário logado seja o mesmo que criou o post.
