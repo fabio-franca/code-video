@@ -1,5 +1,5 @@
 INSERT users(username,password,createdAt,updatedAt) VALUES("fabio","fabio123","2021-10-29 14:50:10","2021-10-29 14:50:10");
-INSERT users(username,password,createdAt,updatedAt) VALUES("dorothy","maria1","2021-10-29 14:50:10","2021-10-29 14:50:10");
+INSERT users(username,password,createdAt,updatedAt) VALUES("dorothy","maria123","2021-10-29 14:50:10","2021-10-29 14:50:10");
 
 INSERT INTO CATEGORIAS VALUES (1, "Frontend","2021-10-29 14:50:10","2021-10-29 14:50:10");
 INSERT INTO CATEGORIAS VALUES (2, "Backend","2021-10-29 14:50:10","2021-10-29 14:50:10");

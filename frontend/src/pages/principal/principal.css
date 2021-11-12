@@ -19,7 +19,7 @@
 }
 
 .listaPostsTitle:after{
-    content: "________________________";
+    content: "_________________________";
     color: #dd974f;
     font-size: 2rem;
 }

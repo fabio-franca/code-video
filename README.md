@@ -15,6 +15,26 @@ Frontend:<br>
 O banco de dados escolhido foi o MySQL.
 
 
+<<<<<<< HEAD
+=======
+<h3>Utilização:</h3>
+<hr>
+Após clonar o repositório, criar a base de dados DB_CODEVIDEO e ao iniciar a IDE, abrir dois terminais. No primeiro executar:
+
+-cd .\backend\
+
+-node server
+
+No segundo terminar, executar:
+
+-cd .\frontend\
+
+-yarn start
+
+Assim que iniciado o servidor e cliente, realizar a execução do script INSERTS_DB_CODEVIDEO.sql, onde será realizada a inserção das tabelas.
+<br>
+
+>>>>>>> 093654cd996ecf2c5918cc4bfc95f8ce118c8390
 1. Registro: http://localhost:3000/registration
   Utilizar para se registrar no sistema.
 
@@ -30,19 +50,24 @@ O banco de dados escolhido foi o MySQL.
 
 5. Após a criação do post, ao acessar a página principal é possível visualizar seu novo post. Dentro do card do post é possível clicar na imagem e acessar seu post.
 
+<<<<<<< HEAD
   5.1. Meu post: http://localhost:3000/post/1 (Exemplo)
   Outros usuário não podem modificar seu post, somente seu usuário logado. Portanto para seu próprio usuário, serão exibidas as opções de excluir o post e clicando no título ou descrição, é possível editar o post.
+=======
+5.1. Meu post: localhost:3000/post/1 (Exemplo)
+    Outros usuário não podem modificar seu post, somente seu usuário logado. Portanto para seu próprio usuário, serão exibidas as opções de excluir o post e clicando     no título ou descrição, é possível editar o post.
+>>>>>>> 093654cd996ecf2c5918cc4bfc95f8ce118c8390
   
-  5.2. Comentários: Dentro da postagem é possível criar comentários e excluir, caso o usuário logado seja o mesmo que criou o post.
+5.2. Comentários: Dentro da postagem é possível criar comentários e excluir, caso o usuário logado seja o mesmo que criou o post.
  
 6. Na página principal, nos posts, é possível verificar o usuário que realizou a postagem. Clicando em seu nome, o usuário é redirecionado para a listagem de posts daquele usuário.
 	
-  6.1. Like e deslike: Dentro do card da postagem, existem botões para dar like ou deslike no post.
+6.1. Like e deslike: Dentro do card da postagem, existem botões para dar like ou deslike no post.
  
 7. Meus posts: http://localhost:3000/profile/1 (Exemplo)
    Nessa página serão exibidos todos os posts do usuário. Se o usuário logado for o mesmo usuário desta página, é possível alterar sua senha.
    
-   7.1. Ainda dentro da listagem de posts do usuário, existe um botão para visualizar cada postagem.
+7.1. Ainda dentro da listagem de posts do usuário, existe um botão para visualizar cada postagem.
 
 8. Na navbar da página principal, em Categorias, é possível selecionar uma filtragem pela categoria das postagem.
 

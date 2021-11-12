@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 	  },
 	});
   
+	//----Realiza a associação com outras tabelas
 	Posts.associate = (models) => {
 		Posts.hasMany(models.Comments, {
 			onDelete: "cascade",
